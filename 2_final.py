@@ -6,22 +6,21 @@ ReadNumbers = []
 BlockSize = 10
 NumberSum = 0
 NumberMax = 0
-CurrentMax = None
+CurrentMax = 0
 
 
 with open('1_test.txt', 'r') as file:
     for line in file:
         CheckNumbers = re.findall(r'\b[0-9a-fA-F]+\b', line)
         for Number in CheckNumbers:
-            if Number:
-                if len(Number) > 1:
-                    Number = int(Number, 16)
-                    if (Number % 2 == 0) and (Number <= 2048):
-                        ReadNumbers.append(Number)
-                        if len(ReadNumbers) == BlockSize:
-                            print(ReadNumbers)
-                            NumberSum += len(ReadNumbers)
-                            ReadNumbers = []
+            if len(Number) > 1:
+                Number = int(Number, 16)
+                if (Number % 2 == 0) and (Number <= 2048):
+                    ReadNumbers.append(Number)
+                    if len(ReadNumbers) == BlockSize:
+                        print(ReadNumbers)
+                         NumberSum += len(ReadNumbers)
+                         ReadNumbers = []
 
 if ReadNumbers:
     print(ReadNumbers)
