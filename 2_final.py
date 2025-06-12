@@ -5,7 +5,7 @@ NumberDict = {'1': 'один', '2': 'два', '3': 'три', '4': 'четыре'
 ReadNumbers = []
 NumberSum = 0
 NumberMax = 0
-CurrentMax = None
+CurrentMax = 0
 
 
 with open('1_test.txt', 'r') as file:
