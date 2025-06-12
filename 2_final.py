@@ -5,7 +5,7 @@ NumberDict = {'1': 'один', '2': 'два', '3': 'три', '4': 'четыре'
 ReadNumbers = []
 NumberSum = 0
 NumberMax = 0
-CurrentMax = 0
+CurrentMax = None
 
 
 with open('1_test.txt', 'r') as file:
@@ -16,23 +16,16 @@ with open('1_test.txt', 'r') as file:
                 Number = int(Number, 16)
                 if (Number % 2 == 0) and (Number <= 2048):
                     ReadNumbers.append(Number)
-                    print(ReadNumbers)
-                    NumberSum += len(ReadNumbers)
-                    ReadNumbers = []
 
-if ReadNumbers:
-    print(ReadNumbers)
-    NumberSum += len(ReadNumbers)
+NumberSum += len(ReadNumbers)
+NumberMax = max(ReadNumbers)
 
-    CurrentMax = max(ReadNumbers)
-    if CurrentMax > NumberMax:
-        NumberMax = CurrentMax
-
-words = []
+Words = []
 NumberMaxStr = str(NumberMax)
 for i in NumberMaxStr:
-    words.append(NumberDict[i])
+    Words.append(NumberDict[i])
 
+print(ReadNumbers)
 print("Количество чисел: ", NumberSum)
 print("Максимальное число: \n", NumberMax)
-print(' '.join(words))
+print(' '.join(Words))
